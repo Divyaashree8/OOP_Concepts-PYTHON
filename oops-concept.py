@@ -11,6 +11,8 @@ class BankAccount:
         print(f"${amount} deposited successfully.")
      else:
        print("Invaild amount! Deposite must be positive.")
+  def withdraw(self,amount):
+    print("Withdraw method shoukd be implemented by subclass")
   
   def display_details(self):
      print("Account Details)
@@ -41,14 +43,11 @@ class CurrentAccount(Account):
     else:
       self.__balance-=amount
       print(f"${amount}withdrawn successfully.")
-acc1=SavingsAccount("Divya",12345,500000)
-acc2=CurrentAccount("Shree",67895,500000)
-acc1.display_details()
-acc2.display_details()
-acc1.deposite(2000)
-acc1.withdraw(1000)
-
-print("Current Balance:",acc1.get_balance())
-  
-
-  
+# Polymorphism
+accounts=[
+SavingsAccount("Divya",12345,500000),
+CurrentAccount("Shree",67895,500000)
+]
+for account in accounts:
+  account.display_details()
+  account.withdraw(500)
